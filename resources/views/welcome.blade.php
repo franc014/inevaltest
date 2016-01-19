@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">APLICACIÓN DE PRUEBA PARA INEVAL</div>
+                <div class="title">APLICACIÓN DE PRUEBA PARA INEVAL.</div>
             </div>
         </div>
     </body>
