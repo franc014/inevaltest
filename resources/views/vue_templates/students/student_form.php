@@ -105,7 +105,7 @@
             </div>
             <div class="col-sm-4">
                 <ul id="repeat-object" class="list-group">
-                    <li v-for="value in errors" class="list-group-item list-group-item-danger">
+                    <li v-for="value in errors" track-by="$index" class="list-group-item list-group-item-danger">
                         {{ value }}
                     </li>
                 </ul>

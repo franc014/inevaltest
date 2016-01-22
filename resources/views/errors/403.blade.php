@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Volveremos pronto.</div>
+                <div class="title">No está autorizado/a. Por favor consulte a Soporte Técnico para más información.</div>
             </div>
         </div>
     </body>

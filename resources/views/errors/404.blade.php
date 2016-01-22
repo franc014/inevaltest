@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Volveremos pronto.</div>
+                <div class="title">La Página no existe.</div>
             </div>
         </div>
     </body>

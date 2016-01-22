@@ -1,7 +1,17 @@
 var vue = require('vue');
 vue.use(require('vue-resource'));
 vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#_token').getAttribute('value');
+vue.http.interceptors.push({
+    request: function (request) {
+        return request;
+    },
 
+    response: function (response) {
+        return response
+
+    }
+
+});
 var studentForm = vue.extend({
 
     template: '#student-form-template',
@@ -9,11 +19,11 @@ var studentForm = vue.extend({
     data: function () {
         return {
             enableForm: false,
-            errors:{}
+            errors: {}
         }
     },
-    created: function(){
-      //console.log(this.$resource);
+    created: function () {
+        //console.log(this.$resource);
     },
     methods: {
         hideStudentsForm: function (event) {
@@ -22,25 +32,28 @@ var studentForm = vue.extend({
             this.enableForm = false;
             this.$dispatch('hide-add-button');
         },
-        saveStudent: function(event){
+        saveStudent: function (event) {
 
             event.preventDefault();
 
             var id = this.student.id;
             var resource = this.$resource('/api/students{/id}');
 
-            if(typeof id === "undefined") {
+            if (typeof id === "undefined") {
                 resource.save(this.student).then(function (response) {
                     this.errors = {};
                     alert('La información ha sido guardada exitosamente.');
-                    this.$dispatch('student-added',this.student);
+                    this.$dispatch('student-added', this.student);
                     this.student = {};
                 }, function (response) {
-                    //console.log(response);
-                    this.errors = response.data;
-                    alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                    if (response.status == 403) {
+                        alert('No está autorizado/a. Por favor consulte a Soporte Técnico para más información.');
+                    } else {
+                        this.errors = response.data;
+                        alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                    }
                 });
-            }else {
+            } else {
                 resource.update({id: this.student.id}, this.student).then(function (response) {
 
                     this.errors = {};
@@ -48,8 +61,12 @@ var studentForm = vue.extend({
 
                 }, function (response) {
                     //console.log(response);
-                    this.errors = response.data;
-                    alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                    if (response.status == 403) {
+                        alert('No está autorizado/a. Por favor consulte a Soporte Técnico para más información.');
+                    } else {
+                        this.errors = response.data;
+                        alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                    }
                 });
             }
 
@@ -60,7 +77,7 @@ var studentForm = vue.extend({
         'enable-form': function () {
             this.enableForm = true;
         },
-        'edit-student': function(student){
+        'edit-student': function (student) {
             this.enableForm = true;
             this.student = student;
         }
@@ -94,30 +111,34 @@ var studentsGrid = vue.extend({
                 this.students = students.data;
             }.bind(this));
         },
-        editStudent: function(student){
+        editStudent: function (student) {
             this.isAddButtonEnabled = false;
-            this.$broadcast('edit-student',student);
+            this.$broadcast('edit-student', student);
         },
-        deleteStudent: function(student){
+        deleteStudent: function (student) {
             var resource = this.$resource('/api/students{/id}');
-            if(confirm("Está seguro/a de eliminar este registro?")) {
+            if (confirm("Está seguro/a de eliminar este registro?")) {
                 resource.delete({id: student.id}).then(function (response) {
                     this.students.$remove(student);
                     alert('La información ha sido eliminada exitosamente');
                 }, function (response) {
-                    alert('La información no ha sido eliminada. Por favor inténtelo nuevamente o contacte al Administrador');
+                    if (response.status == 403) {
+                        alert('No está autorizado/a. Por favor consulte a Soporte Técnico para más información.');
+                    } else {
+                        alert('La información no ha sido eliminada. Por favor inténtelo nuevamente o contacte al Administrador');
+                    }
                 });
             }
         },
-        showStudent: function(student){
-            location.href = '/api/students/'+student.id;
+        showStudent: function (student) {
+            location.href = '/api/students/' + student.id;
         }
     },
     events: {
         'hide-add-button': function () {
             this.isAddButtonEnabled = true;
         },
-        'student-added': function(student){
+        'student-added': function (student) {
             this.students.push(student);
             this.fetchStudentsList();
         }
@@ -128,7 +149,7 @@ var studentView = vue.extend({
     events: {
         'show-modal': function () {
             console.log('open sesam');
-            $('#view-modal').modal({show:true});
+            $('#view-modal').modal({show: true});
         }
 
     }

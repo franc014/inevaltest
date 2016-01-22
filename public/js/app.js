@@ -11144,7 +11144,16 @@ module.exports = Vue;
 var vue = require('vue');
 vue.use(require('vue-resource'));
 vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#_token').getAttribute('value');
+vue.http.interceptors.push({
+    request: function request(_request) {
+        return _request;
+    },
 
+    response: function response(_response) {
+        return _response;
+    }
+
+});
 var studentForm = vue.extend({
 
     template: '#student-form-template',
@@ -11179,9 +11188,12 @@ var studentForm = vue.extend({
                     this.$dispatch('student-added', this.student);
                     this.student = {};
                 }, function (response) {
-                    //console.log(response);
-                    this.errors = response.data;
-                    alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                    if (response.status == 403) {
+                        alert('No está autorizado/a. Por favor consulte a Soporte Técnico para más información.');
+                    } else {
+                        this.errors = response.data;
+                        alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                    }
                 });
             } else {
                 resource.update({ id: this.student.id }, this.student).then(function (response) {
@@ -11190,8 +11202,12 @@ var studentForm = vue.extend({
                     alert('La información ha sido actualizada exitosamente.');
                 }, function (response) {
                     //console.log(response);
-                    this.errors = response.data;
-                    alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                    if (response.status == 403) {
+                        alert('No está autorizado/a. Por favor consulte a Soporte Técnico para más información.');
+                    } else {
+                        this.errors = response.data;
+                        alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                    }
                 });
             }
         }
@@ -11245,7 +11261,11 @@ var studentsGrid = vue.extend({
                     this.students.$remove(student);
                     alert('La información ha sido eliminada exitosamente');
                 }, function (response) {
-                    alert('La información no ha sido eliminada. Por favor inténtelo nuevamente o contacte al Administrador');
+                    if (response.status == 403) {
+                        alert('No está autorizado/a. Por favor consulte a Soporte Técnico para más información.');
+                    } else {
+                        alert('La información no ha sido eliminada. Por favor inténtelo nuevamente o contacte al Administrador');
+                    }
                 });
             }
         },

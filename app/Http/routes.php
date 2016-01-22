@@ -31,5 +31,5 @@ Route::group(['middleware' => 'web'], function () {
         return view('welcome');
     });
     Route::get('/users_admin', 'HomeController@index');
-    Route::resource('/api/students', 'StudentController');
+    Route::resource('/api/students', 'StudentController',['except'=>['create','edit']]);
 });
