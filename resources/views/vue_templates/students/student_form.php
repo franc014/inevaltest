@@ -87,6 +87,33 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"
+                                   for="partial1">Parcial 1</label>
+                            <div class="col-md-7">
+                                <input id="partial1" name="partial1" type="text"
+                                       class="form-control input-md" v-model="student.partial1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"
+                                   for="partial2">Parcial 2</label>
+                            <div class="col-md-7">
+                                <input id="partial2" name="partial2" type="text"
+                                       class="form-control input-md" v-model="student.partial2">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"
+                                   for="partial3">Parcial 2</label>
+                            <div class="col-md-7">
+                                <input id="partial3" name="partial3" type="text"
+                                       class="form-control input-md" v-model="student.partial3">
+                            </div>
+                        </div>
+
 
                         <!-- Button -->
                         <div class="form-group">

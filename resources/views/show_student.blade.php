@@ -31,6 +31,13 @@
                                     <dd>{{$student->address}}</dd>
                                     <dt>Fecha de nacimiento</dt>
                                     <dd>{{$student->birthdate}}</dd>
+                                    <dt>Parcial 1</dt>
+                                    <dd>{{$student->partial1}}</dd>
+                                    <dt>Parcial 2</dt>
+                                    <dd>{{$student->partial2}}</dd>
+                                    <dt>Parcial 3</dt>
+                                    <dd>{{$student->partial3}}</dd>
+
 
                                 </dl>
                             </div>

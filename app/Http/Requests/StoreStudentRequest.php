@@ -31,7 +31,11 @@ class StoreStudentRequest extends Request
             'birthdate' => 'date_format:Y-m-d',
             'mobile' => 'required|max:10',
             'phone' => 'required|max:9',
-            'address' => 'required|max:255'
+            'address' => 'required|max:255',
+            'partial1' => 'numeric',
+            'partial2' => 'numeric',
+            'partial3' => 'numeric'
+
         ];
     }
 }
