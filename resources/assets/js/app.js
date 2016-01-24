@@ -63,6 +63,7 @@ var studentForm = vue.extend({
 
                     this.errors = {};
                     alert('La información ha sido actualizada exitosamente.');
+                    this.$dispatch('student-edited', this.student);
 
                 }, function (response) {
                     //console.log(response);
@@ -152,6 +153,9 @@ var studentsGrid = vue.extend({
         },
         'student-added': function (student) {
             this.students.push(student);
+            this.fetchStudentsList();
+        },
+        'student-edited': function(){
             this.fetchStudentsList();
         }
     }
