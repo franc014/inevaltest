@@ -32,9 +32,9 @@ class StoreStudentRequest extends Request
             'mobile' => 'required|max:10',
             'phone' => 'required|max:9',
             'address' => 'required|max:255',
-            'partial1' => 'numeric',
-            'partial2' => 'numeric',
-            'partial3' => 'numeric'
+            'partial1' => 'required|numeric',
+            'partial2' => 'required|numeric',
+            'partial3' => 'required|numeric'
 
         ];
     }
