@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         <p>
                             Esta aplicaci&oacute;n, como el requerimiento lo indica, es un demo de administraci&oacute;n de
-                            usuarios con operaciones CRUD. Se desarroll&oacute; utilizando Laravel en el backend y
+                            usuarios con operaciones CRUD. Se desarroll&oacute; utilizando Laravel 5.2 en el backend y
                             Vue.js, bootstrap y Sass en el front end. A continuaci&oacute;n se dan detalles de la
                             misma:</p>
                         <ol>
@@ -22,10 +22,12 @@
                                 Hay 3 roles de usuarios: superadmin, admin y estudiante.
                             </li>
                             <li>
-                                El superadmin tiene acceso a todas las opciones CRUD. El admin solo puede editar y ver
+                                El superadmin tiene acceso a todas las opciones CRUD. El admin solo puede añadir, editar y ver
                                 info del estudiante y &eacute;ste &uacute;ltimo solo puede ver sus datos personales
                                 incluyendo sus 3 notas parciales,
                             </li>
+                            <li>
+                                Se usó la funcionalidad de Autorizaci&oacute;n empacada con Laravel 5.2.</li>
                             <li>
                                 El CRUD se lo manej&oacute; mediante un &quot;resourcefull controller&quot; (API
                                 RESTFULL).

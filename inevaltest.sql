@@ -113,13 +113,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `role_id` int(10) unsigned NOT NULL,
-  `partial1` decimal(2,2) NOT NULL,
-  `partial2` decimal(2,2) NOT NULL,
-  `partial3` decimal(2,2) NOT NULL,
+  `partial1` decimal(10,2) NOT NULL,
+  `partial2` decimal(10,2) NOT NULL,
+  `partial3` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_role_id_foreign` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (10,'','gandrade@gmail.com','','','gabriela','andrade','0000-00-00','','','',NULL,'2016-01-22 16:54:50','2016-01-21 17:44:49',3,0.00,0.00,0.00),(43,'admin','jmal23@jmal.com','$2y$10$8Rs92eGFmdkS0zJteVyMzetBbyg/lF3Kd2ymSxrKkK/aPMGmOK35a','1713444552','Rocio','Andrade','1999-01-15','el inca','2898988','0978787878','Qfq87gMoLSY25Di1sjgn4E0DxnfGaevWwRke7QVHMn9kOUuMteNZNXCTE9GR','2016-01-22 20:36:22','2016-01-22 20:36:22',2,0.00,0.00,0.00),(46,'administrrador','jfandradea@gmail.com','$2y$10$6e10hjGE.r8bTC656uT.vOuYwGN6D.u2qpYBoS0dz3G5ziXbl2bHu','','','','0000-00-00','','','','q3fEDJ4wsehId2xN8GGWB6XXNGo6oXd4xf3OiBbJ8xLXmTjDZQqV2Z4BZmfS','2016-01-22 20:34:14','2016-01-22 20:34:14',1,0.00,0.00,0.00),(47,'','jmal10@jmal.com','$2y$10$36PPyTyx1ZcayxZ.xg4if.M0DKdklemuGQvf35Zi0xKXK5QPlGA3W','1713444559','Juan Manuel','Pedro Carlos Soldados','1999-01-15','el inca','2898988','0978787878',NULL,'2016-01-22 17:15:12','2016-01-22 17:15:12',0,0.00,0.00,0.00),(48,'','jmal13@jmal.com','$2y$10$5YoSrrvpoRDN847VDJsyCO2UnEVzv/5cBPXLsOT1yNJCDGbbXcwvy','1716333531','Juan Elio2','Guaman','1999-01-15','el inca','2898988','0978787878','0lomFCAvhIgMrDX2wMnB5OhrmFhWeC01NcDHj3UHWTb6ip0I8PVqyMCtVEzt','2016-01-22 20:48:25','2016-01-22 20:48:25',3,0.00,0.00,0.00),(49,'','jmal230@jmal.com','$2y$10$UrcRmLAAcafEmebiZO60bOWfhy42UYwoPsQlvkcWfPr7wo48ESUdm','1716333533','Juan Manuel','Pedro Carlos Soldados','1999-01-15','el inca','2898988','0978787878',NULL,'2016-01-22 20:20:03','2016-01-22 20:20:03',3,0.00,0.00,0.00);
+INSERT INTO `users` VALUES (43,'admin','jfrand011@hotmail.com','$2y$10$6e10hjGE.r8bTC656uT.vOuYwGN6D.u2qpYBoS0dz3G5ziXbl2bHu','1713444552','Usuario Admin','Demo','0000-00-00','el inca','2401855','0968741465','uv7aYWxx4lrPdTpL71FzcYo3DA4PDRbDNGihqUnCOvwYmb4Sber1WemYDtKO','2016-01-24 04:02:12','2016-01-24 04:02:12',2,0.00,0.00,0.00),(46,'administrrador','jfandradea@gmail.com','$2y$10$6e10hjGE.r8bTC656uT.vOuYwGN6D.u2qpYBoS0dz3G5ziXbl2bHu','1716333537','Usuario Superadmin','Demo','0000-00-00','el inca','','','6px6i259WZzjl6pWZPluy3ag9SAzKTJidQqyndICrC6vAGewje8Wjmcbt0eC','2016-01-24 04:03:04','2016-01-24 04:03:04',1,0.00,0.00,0.00);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -141,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-22 16:02:40
+-- Dump completed on 2016-01-23 23:06:00

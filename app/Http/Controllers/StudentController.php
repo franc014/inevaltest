@@ -79,9 +79,6 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        if (Gate::denies('see-own-student-info',$id)) {
-            abort(403);
-        }
         $student = User::findOrFail($id);
         $data = ['student' => $student];
         return view('show_student')->with($data);

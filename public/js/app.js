@@ -11212,6 +11212,7 @@ var studentForm = vue.extend({
                 });
             }
         }
+
     },
     events: {
         'enable-form': function enableForm() {
@@ -11277,6 +11278,7 @@ var studentsGrid = vue.extend({
     events: {
         'hide-add-button': function hideAddButton() {
             this.isAddButtonEnabled = true;
+            this.fetchStudentsList();
         },
         'student-added': function studentAdded(student) {
             this.students.push(student);

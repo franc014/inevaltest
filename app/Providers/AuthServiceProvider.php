@@ -33,7 +33,9 @@ class AuthServiceProvider extends ServiceProvider
                 return true;
             }
         });
-
+        $gate->define('store-student', function ($user) {
+            return $user->isAdmin();
+        });
         $gate->define('edit-student', function ($user) {
             return $user->isAdmin();
         });
@@ -42,9 +44,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isAdmin();
         });
 
-        $gate->define('see-own-student-info', function ($user,$compared_user_id) {
-            return $user->id==$compared_user_id;
-        });
+
 
 
 
