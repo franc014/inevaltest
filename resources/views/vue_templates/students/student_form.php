@@ -120,7 +120,7 @@
                             <label class="col-md-4 control-label" for="save_student"></label>
                             <div class="col-md-6" style="margin-top: 10px">
                                 <button type="submit" id="save_student" name="save_student"
-                                        class="btn btn-primary">Gua
+                                        class="btn btn-primary">Guardar
                                 </button>
                                 <a href="#" id="cancel_link" name="cancel_link"
                                    class="pull-right" v-on:click="hideStudentsForm">Cancelar</a>
