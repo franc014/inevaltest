@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
                         <p>
-                            Esta aplicaci&oacute;n, como ek requerimiento lo indica, es un demo de administraci&oacute;n de
+                            Esta aplicaci&oacute;n, como el requerimiento lo indica, es un demo de administraci&oacute;n de
                             usuarios con operaciones CRUD. Se desarroll&oacute; utilizando Laravel en el backend y
                             Vue.js, bootstrap y Sass en el front end. A continuaci&oacute;n se dan detalles de la
                             misma:</p>
