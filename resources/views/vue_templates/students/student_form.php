@@ -120,7 +120,7 @@
                             <label class="col-md-4 control-label" for="save_student"></label>
                             <div class="col-md-6" style="margin-top: 10px">
                                 <button type="submit" id="save_student" name="save_student"
-                                        class="btn btn-primary">Guardar
+                                        class="btn btn-primary">Gua
                                 </button>
                                 <a href="#" id="cancel_link" name="cancel_link"
                                    class="pull-right" v-on:click="hideStudentsForm">Cancelar</a>
@@ -131,7 +131,7 @@
                 </form>
             </div>
             <div class="col-sm-4">
-                <ul id="repeat-object" class="list-group">
+                <ul id="errors-list" class="list-group">
                     <li v-for="value in errors" track-by="$index" class="list-group-item list-group-item-danger">
                         {{ value }}
                     </li>

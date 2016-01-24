@@ -11194,6 +11194,9 @@ var studentForm = vue.extend({
                     } else {
                         this.errors = response.data;
                         alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                        $('html,body').animate({
+                            scrollTop: $("#errors-list").offset().top
+                        }, 'slow');
                     }
                 });
             } else {
@@ -11208,6 +11211,9 @@ var studentForm = vue.extend({
                     } else {
                         this.errors = response.data;
                         alert('La información no pudo ser guardada. Por favor corrija los errores.');
+                        $('html,body').animate({
+                            scrollTop: $("#errors-list").offset().top
+                        }, 'slow');
                     }
                 });
             }
