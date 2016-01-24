@@ -14,7 +14,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <table class="table table-condensed" v-if="students.length != 0">
+            <table class="table table-condensed" v-if="students.length != 0" v-cloak>
                 <thead>
                 <tr>
                     <th>CID</th>
@@ -43,7 +43,7 @@
 
                 </tbody>
             </table>
-            <span v-else='students.length = 0' class="alert alert-warning">Ningún estudiante ha sido registrado. Pulse el botón Nuevo Estudiante para crear uno</span>
+            <span  v-else='students.length = 0' class="alert alert-warning">Ningún estudiante ha sido registrado. Pulse el botón Nuevo Estudiante para crear uno</span>
         </div>
     </div>
 </template>

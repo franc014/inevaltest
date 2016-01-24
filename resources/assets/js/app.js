@@ -12,6 +12,7 @@ vue.http.interceptors.push({
     }
 
 });
+vue.config.silent = true;
 var studentForm = vue.extend({
 
     template: '#student-form-template',
